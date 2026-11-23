@@ -8,7 +8,7 @@
   <meta name="description" content="Senior Software Engineer with 18+ years of experience in systems software, C++ development, compiler technologies, desktop applications, and R&D engineering.">
   <meta name="author" content="Armen Badalian">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#fcfcfa">
+  <meta name="theme-color" content="#fcfcfa" id="theme-color">
   <link rel="canonical" href="https://armenbadal.github.io/cv/">
 
   <meta property="og:type" content="website">
@@ -24,16 +24,42 @@
   <meta name="twitter:description" content="Senior Software Engineer with 18+ years of experience in systems software, C++ development, compiler technologies, desktop applications, and R&D engineering.">
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='10'%20fill='%23135c4c'/%3E%3Ctext%20x='32'%20y='43'%20text-anchor='middle'%20font-family='Georgia,serif'%20font-size='26'%20fill='%23ffffff'%3ECV%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" id="theme-modern" href="./css/style.css">
+  <link rel="stylesheet" id="theme-classic" href="./css/classic.css" media="not all">
+  <script>
+    (() => {
+      let theme = "modern";
+      try {
+        if (window.localStorage.getItem("cv-theme") === "classic") {
+          theme = "classic";
+        }
+      } catch {
+        // Storage may be unavailable in private browsing; use the default.
+      }
+      document.documentElement.dataset.theme = theme;
+      document.getElementById("theme-color").content = theme === "classic" ? "#f1e8d7" : "#fcfcfa";
+      if (theme === "classic") {
+        document.getElementById("theme-modern").media = "not all";
+        document.getElementById("theme-classic").media = "all";
+      }
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div class="page">
     <header class="toolbar">
-      <button class="print-button" id="print-button" type="button" hidden aria-describedby="print-hint">
-        Download / Print CV
-      </button>
+      <div class="toolbar-actions">
+        <label class="theme-toggle" for="theme-toggle" title="Switch between modern and classic newspaper styles">
+          <input type="checkbox" id="theme-toggle" aria-describedby="theme-hint">
+          <span>Classic</span>
+        </label>
+        <button class="print-button" id="print-button" type="button" hidden aria-describedby="print-hint">
+          Download / Print CV
+        </button>
+      </div>
+      <span class="sr-only" id="theme-hint">Switch between the modern and classic newspaper CV styles.</span>
       <span class="sr-only" id="print-hint">Opens your browser's print dialog, where you can save this CV as a PDF.</span>
     </header>
 

@@ -1,6 +1,12 @@
 import { CvDataError, loadCvData } from "./data-loader.js";
 import { renderCv, updateDocumentMetadata } from "./renderer.js";
 
+const THEME_STORAGE_KEY = "cv-theme";
+const themeToggle = document.getElementById("theme-toggle");
+const classicStylesheet = document.getElementById("theme-classic");
+const modernStylesheet = document.getElementById("theme-modern");
+const themeColorMeta = document.getElementById("theme-color");
+
 const elements = {
   main: document.getElementById("main-content"),
   cvRoot: document.getElementById("cv-root"),
@@ -13,6 +19,8 @@ const elements = {
 };
 
 let isLoading = false;
+
+setupTheme();
 
 const missingElements = Object.entries(elements)
   .filter(([, element]) => !element)
@@ -79,4 +87,54 @@ function showError(error) {
   elements.main.setAttribute("aria-busy", "false");
   elements.printButton.hidden = true;
   elements.errorTitle.focus();
+}
+
+function setupTheme() {
+  if (!themeToggle) {
+    return;
+  }
+
+  const initialTheme =
+    document.documentElement.dataset.theme === "classic" ? "classic" : "modern";
+
+  applyTheme(initialTheme, false);
+
+  themeToggle.addEventListener("change", () => {
+    applyTheme(themeToggle.checked ? "classic" : "modern", true);
+  });
+
+  window.addEventListener("storage", (event) => {
+    if (event.key === THEME_STORAGE_KEY) {
+      applyTheme(event.newValue === "classic" ? "classic" : "modern", false);
+    }
+  });
+}
+
+function applyTheme(theme, persist) {
+  const isClassic = theme === "classic";
+  const activeTheme = isClassic ? "classic" : "modern";
+
+  document.documentElement.dataset.theme = activeTheme;
+
+  if (classicStylesheet) {
+    classicStylesheet.media = isClassic ? "all" : "not all";
+  }
+
+  if (modernStylesheet) {
+    modernStylesheet.media = isClassic ? "not all" : "all";
+  }
+
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute("content", isClassic ? "#f1e8d7" : "#fcfcfa");
+  }
+
+  themeToggle.checked = isClassic;
+
+  if (persist) {
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, activeTheme);
+    } catch {
+      // The theme still applies for this page even if storage is unavailable.
+    }
+  }
 }

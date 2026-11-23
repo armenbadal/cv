@@ -137,6 +137,34 @@ code {
   padding-top: clamp(1rem, 2.5vw, 2rem);
 }
 
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.theme-toggle input {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
 .print-button,
 .retry-button {
   appearance: none;
@@ -547,8 +575,14 @@ code {
 }
 
 @media screen and (max-width: 460px) {
-  .print-button {
+  .toolbar-actions {
     width: 100%;
+    gap: 0.75rem;
+  }
+
+  .print-button {
+    flex: 1 1 auto;
+    width: auto;
   }
 
   .cv-contact {

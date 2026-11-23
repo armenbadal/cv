@@ -1,6 +1,7 @@
 # Personal CV Website
 
-A minimal, single-page curriculum vitae built with HTML5, CSS3, vanilla
+A single-page curriculum vitae with two presentation themes: a modern web
+edition and a 1950s newspaper classic edition. Built with HTML5, CSS3, vanilla
 JavaScript and JSON. All CV content lives in `data/cv.json`; the HTML, CSS and
 JavaScript only provide structure, presentation and behaviour.
 
@@ -17,11 +18,6 @@ dependency. The site is designed to work as a static GitHub Pages project site.
 `data/cv.json` contains the CV content supplied by the site owner. The
 implementation did not invent professional facts: identity, summary, skills,
 experience, teaching, education and publications come from that file.
-
-The `teaching` array currently contains a clearly marked placeholder entry
-because teaching details were not supplied. Replace its bracketed values with the
-real institution, role, dates and courses (or remove the entry to hide the
-section).
 
 If a section array is empty — for example, `projects` — the corresponding section
 is intentionally omitted rather than rendered as an empty heading. Add entries
@@ -41,6 +37,9 @@ they are what non-JavaScript crawlers and social previews read.
 ## Features
 
 - Single-page CV rendered entirely from `data/cv.json`.
+- Modern, responsive web edition as the default presentation.
+- A persisted **Classic** checkbox next to **Download / Print CV** switches instantly to the 1950s newspaper edition.
+- Newspaper edition details: masthead, newsprint paper, double rules, drop cap, justified summary columns and editorial typography.
 - Sections: summary, technical skills, professional experience, selected
   projects, teaching experience, education and publications.
 - Optional fields and empty sections are skipped cleanly.
@@ -63,7 +62,8 @@ they are what non-JavaScript crawlers and social previews read.
 cv/
 ├── index.html                 # Semantic document and application entry point
 ├── css/
-│   └── style.css              # Screen, responsive and print styles
+│   ├── style.css              # Modern theme (default); screen, responsive, print
+│   └── classic.css            # 1950s newspaper alternate theme
 ├── js/
 │   ├── app.js                 # Initialisation, loading states and error UI
 │   ├── data-loader.js         # Fetching, parsing and validation
@@ -379,6 +379,20 @@ Graph URLs in `index.html` as well.
 
 ---
 
+## Switch styles
+
+Use the **Classic** checkbox in the top-right toolbar, next to **Download / Print
+CV**:
+
+- Unchecked: the modern web edition (`css/style.css`), which is the default.
+- Checked: the 1950s newspaper edition (`css/classic.css`).
+
+The choice is applied before the page paints, saved in `localStorage` under the
+key `cv-theme`, and shared across open tabs. The checkbox itself is screen-only
+and does not appear in the printed CV.
+
+---
+
 ## Print and save as PDF
 
 1. Open the deployed site (or the local HTTP server).
@@ -389,9 +403,9 @@ Graph URLs in `index.html` as well.
 5. Set margins to “Default” or “None” as preferred; the stylesheet already
    defines 14 mm × 15 mm A4 page margins.
 
-The `@media print` rules:
+The active theme is used for printing. Its `@media print` rules:
 
-- Hide the toolbar, loading state and skip link.
+- Hide the toolbar (including the theme checkbox), loading state and skip link.
 - Remove screen backgrounds and use high-contrast text.
 - Keep individual experience, project, education and publication entries from
   splitting across pages where practical.
@@ -443,7 +457,7 @@ Empty optional sections are not errors: their sections are simply omitted.
 
 ## Customisation
 
-Visual tokens are defined at the top of `css/style.css`:
+Visual tokens for the modern theme are defined at the top of `css/style.css`:
 
 ```css
 :root {
@@ -455,8 +469,21 @@ Visual tokens are defined at the top of `css/style.css`:
 }
 ```
 
-Changing those values updates the screen theme. Print colours are controlled
-separately inside `@media print`.
+The 1950s newspaper theme keeps its own tokens at the top of `css/classic.css`:
+
+```css
+:root {
+  --paper: #f1e8d7;
+  --ink: #1b1712;
+  --ink-muted: #5b5145;
+  --accent: #8a1d1d;
+  /* ... */
+}
+```
+
+Both files include their own screen, responsive and print styles. Changing token
+values updates only the corresponding theme; print colours are controlled
+separately inside each file's `@media print` block.
 
 To change the section order, edit the sequence in `renderCv()` in
 `js/renderer.js`. To change section labels, edit the strings passed to
@@ -484,8 +511,6 @@ rendered from JSON at runtime; a `<noscript>` message explains this.
 ## Limitations
 
 - The profile image is a neutral monogram placeholder, not a photograph.
-- The Teaching experience section contains a placeholder entry until real
-  teaching details are supplied.
 - Static SEO/social metadata is duplicated in `index.html` for crawlers and must
   be updated manually when identity details or the deployment URL change; the
   runtime updates are not read by every crawler.
