@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Armen Badalian — Senior C++ / Systems Software Engineer</title>
+  <meta name="description" content="Senior Software Engineer with 18+ years of experience in systems software, C++ development, compiler technologies, desktop applications, and R&D engineering.">
+  <meta name="author" content="Armen Badalian">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#fcfcfa">
+  <link rel="canonical" href="https://armenbadal.github.io/cv/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Armen Badalian — CV">
+  <meta property="og:title" content="Armen Badalian — Senior C++ / Systems Software Engineer">
+  <meta property="og:description" content="Senior Software Engineer with 18+ years of experience in systems software, C++ development, compiler technologies, desktop applications, and R&D engineering.">
+  <meta property="og:url" content="https://armenbadal.github.io/cv/">
+  <meta property="og:image" content="https://armenbadal.github.io/cv/assets/profile.jpg">
+  <meta property="og:image:alt" content="Monogram with the initials AB">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Armen Badalian — Senior C++ / Systems Software Engineer">
+  <meta name="twitter:description" content="Senior Software Engineer with 18+ years of experience in systems software, C++ development, compiler technologies, desktop applications, and R&D engineering.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='10'%20fill='%23135c4c'/%3E%3Ctext%20x='32'%20y='43'%20text-anchor='middle'%20font-family='Georgia,serif'%20font-size='26'%20fill='%23ffffff'%3ECV%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="page">
+    <header class="toolbar">
+      <button class="print-button" id="print-button" type="button" hidden aria-describedby="print-hint">
+        Download / Print CV
+      </button>
+      <span class="sr-only" id="print-hint">Opens your browser's print dialog, where you can save this CV as a PDF.</span>
+    </header>
+
+    <main id="main-content" tabindex="-1" aria-busy="true">
+      <p class="status" id="loading-status" role="status" aria-live="polite">Loading CV&hellip;</p>
+
+      <section class="error-panel" id="error-panel" role="alert" aria-labelledby="error-title" hidden>
+        <h1 class="error-title" id="error-title" tabindex="-1">Unable to load the CV</h1>
+        <p class="error-message" id="error-message"></p>
+        <p class="error-hint">
+          The CV data is loaded from <code>data/cv.json</code>. If you opened this file directly
+          from disk, run a local HTTP server instead (see <code>README.md</code>).
+        </p>
+        <button class="retry-button" id="retry-button" type="button">Try again</button>
+      </section>
+
+      <div id="cv-root"></div>
+    </main>
+  </div>
+
+  <noscript>
+    <div class="page">
+      <section class="error-panel" aria-labelledby="noscript-title">
+        <h1 class="error-title" id="noscript-title">JavaScript is required</h1>
+        <p class="error-message">
+          This CV is rendered from <code>data/cv.json</code>. Please enable JavaScript to view it.
+        </p>
+      </section>
+    </div>
+  </noscript>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

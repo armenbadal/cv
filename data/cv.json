@@ -1,0 +1,273 @@
+{
+  "personal": {
+    "fullName": "Armen Badalian",
+    "title": "Senior C++ / Systems Software Engineer",
+    "location": "Yerevan, Armenia",
+    "email": "armenbadal@gmail.com",
+    "phone": "+374 94 31 73 39",
+    "github": "https://github.com/armenbadal",
+    "linkedin": "",
+    "website": "",
+    "profileImage": "assets/profile.jpg",
+    "profileImageAlt": "Armen Badalian"
+  },
+  "summary": "Senior Software Engineer with 18+ years of experience in systems software, C++ development, compiler technologies, desktop applications, and R&D engineering. Experienced in developing LLVM-based JIT software, modernizing legacy C and C++ codebases, designing Windows services and inter-process communication mechanisms, and building reliable cross-platform desktop infrastructure. Strong background in software architecture, performance, reliability, automated testing, and production support. Additional professional experience with Go, compiler construction, and teaching programming-language implementation.",
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "items": [
+        "C",
+        "C++ (C++11/17/23)",
+        "Go",
+        "Python",
+        "JavaScript",
+        "Node.js",
+        "Tcl",
+        "Bash",
+        "PowerShell",
+        "Common Lisp",
+        "Java",
+        "Kotlin"
+      ]
+    },
+    {
+      "category": "Operating Systems",
+      "items": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ]
+    },
+    {
+      "category": "Frameworks and Libraries",
+      "items": [
+        "LLVM",
+        "Clang",
+        "Qt",
+        "wxWidgets",
+        "Electron",
+        "OpenSSL",
+        "libcurl",
+        "Protocol Buffers"
+      ]
+    },
+    {
+      "category": "Tools and Technologies",
+      "items": [
+        "CMake",
+        "vcpkg",
+        "Git",
+        "GitLab CI/CD",
+        "Jenkins",
+        "Yacc/Bison",
+        "Valgrind",
+        "Windows Services",
+        "Inter-Process Communication (IPC)",
+        "Sentry",
+        "Loki",
+        "New Relic",
+        "Intel SGX",
+        "Automated Testing",
+        "CI/CD",
+        "Software Architecture"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "DISQO",
+      "position": "Senior Software Engineer",
+      "startDate": "2020-04",
+      "endDate": "",
+      "current": true,
+      "location": "Armenia",
+      "description": "Develop and maintain a cross-platform desktop agent and its supporting infrastructure, serving approximately 40–50K weekly active desktop users. Work as part of an engineering team, with end-to-end technical ownership of several critical subsystems.",
+      "achievements": [
+        "Developed and maintained a C++ network-traffic interception and analysis proxy, including browser script injection, root CA certificate management, and traffic filtering.",
+        "Took end-to-end technical ownership of the auto-update and recovery infrastructure, Windows service coordination, and installer and release workflows.",
+        "Implemented and maintained Windows service and process coordination mechanisms using Windows Services, Named Pipes, Shared Memory, Events, and Mutexes.",
+        "Implemented process supervision and crash recovery using a dedicated watchdog process and heartbeat-based health monitoring.",
+        "Developed a recovery utility in Go and a lightweight Go command-line client for sending installation and uninstallation events to New Relic.",
+        "Contributed to the migration to a unified MSI installer, including integration with updater and recovery components.",
+        "Co-designed and implemented an automated functional and behavioral testing framework in collaboration with an SQA engineer and integrated it into the CI/CD pipeline.",
+        "Worked on privacy and data-minimization features, controlled update rollouts, feature flags, application-usage events, and performance metrics.",
+        "Contributed to the macOS version through cross-platform build and maintenance work, primarily bug fixes and smaller improvements.",
+        "Modernized the HTTP client infrastructure, including migration to a coroutine-based implementation and consolidation around libcurl.",
+        "Diagnosed and fixed production issues using crash reports and monitoring data from Sentry and Loki.",
+        "Worked in a codebase configured for C++23, using modern C++ features as part of the team's development workflow."
+      ],
+      "technologies": [
+        "C++23",
+        "Go",
+        "Windows",
+        "macOS",
+        "CMake",
+        "vcpkg",
+        "Protocol Buffers",
+        "libcurl",
+        "Windows Services",
+        "Named Pipes",
+        "Shared Memory",
+        "Events",
+        "Mutexes",
+        "GitLab CI/CD",
+        "Sentry",
+        "Loki",
+        "New Relic"
+      ]
+    },
+    {
+      "company": "Synaptics Inc.",
+      "position": "Senior Software Engineer",
+      "startDate": "2017-03",
+      "endDate": "2020-03",
+      "current": false,
+      "location": "Armenia",
+      "description": "Developed software and engineering tools for fingerprint-sensor products, security applications, and evaluation workflows.",
+      "achievements": [
+        "Implemented a new version of Accuracy Suite, a matcher-evaluation tool, using C++17.",
+        "Designed and implemented CTAP FMA (Fingerprint Management Application) for Windows 7 and macOS using Node.js and Electron.",
+        "Developed tools for secure certificate exchange for Microsoft SecureBio and privileged-user account management using C++17, Intel SGX, and OpenSSL.",
+        "Adapted the Basic Security solution for resource-constrained platforms using C.",
+        "Worked on modernizing fingerprint-sensor Windows driver code from C and C++98 to C++17, including architectural refactoring and improvements to performance and reliability."
+      ],
+      "technologies": [
+        "C",
+        "C++",
+        "C++17",
+        "Windows",
+        "macOS",
+        "Node.js",
+        "Electron",
+        "Intel SGX",
+        "OpenSSL"
+      ]
+    },
+    {
+      "company": "RUSHC",
+      "position": "Senior MTS",
+      "startDate": "2015-01",
+      "endDate": "2017-02",
+      "current": false,
+      "location": "Armenia",
+      "description": "Worked on compiler infrastructure and simulation tools for a low-level dataflow language.",
+      "achievements": [
+        "Implemented an LLVM-based JIT simulator for a dataflow language in C++.",
+        "Optimized and modified LLVM IR passes.",
+        "Customized pragma handling in the Clang compiler.",
+        "Extended the parser of a low-level dataflow language."
+      ],
+      "technologies": [
+        "C++",
+        "LLVM",
+        "LLVM IR",
+        "Clang",
+        "Compiler Development"
+      ]
+    },
+    {
+      "company": "Synopsys Armenia",
+      "position": "R&D Engineer, Senior I",
+      "startDate": "2010-10",
+      "endDate": "2014-12",
+      "current": false,
+      "location": "Armenia",
+      "description": "Developed, verified, and maintained tools and automation flows for memory compiler technologies.",
+      "achievements": [
+        "Developed, verified, and maintained the MPL tool for MASIS Pattern Language using Tcl.",
+        "Extended the ScrambleProcessor library to support the integration of BitBrowser with MASIS using C++.",
+        "Implemented a Tcl-based MASIS-versus-GDSII verification flow for address-scrambling verification in SRAM memories.",
+        "Modified the Memory Programming Tool (MPT) to support GDSII files containing multiple types of memory cells.",
+        "Modified the Verification Pattern Generator (VPG) to support the MASIS format.",
+        "Developed and maintained regression tests for MASIC Compiler tools using Bash and Tcl."
+      ],
+      "technologies": [
+        "C++",
+        "Tcl",
+        "Bash",
+        "GDSII",
+        "Regression Testing",
+        "Memory Compiler Tools"
+      ]
+    },
+    {
+      "company": "Virage Logic",
+      "position": "MASIS Automation Engineer",
+      "startDate": "2008-03",
+      "endDate": "2010-09",
+      "current": false,
+      "location": "Armenia",
+      "description": "Developed automation and verification tools for MASIS memory compiler products.",
+      "achievements": [
+        "Designed and implemented MCE, a Qt-based GUI application for group editing memory configuration files.",
+        "Performed functional and system verification of MASIS Compiler tools, including MIG, MIV, VIG, VPG, and MPT.",
+        "Developed Squish-based GUI test suites.",
+        "Developed a MASIS Library script for 65nm memory compilers to provide backward compatibility."
+      ],
+      "technologies": [
+        "C++",
+        "Qt 4",
+        "Tcl",
+        "Squish",
+        "GUI Testing",
+        "Memory Compiler Tools"
+      ]
+    }
+  ],
+  "projects": [],
+  "teaching": [
+  {
+    "institution": "Yerevan State University, IT Educational and Research Center",
+    "role": "Lecturer",
+    "startDate": "2013-09",
+    "endDate": "2016-01",
+    "current": false,
+    "location": "Yerevan, Armenia",
+    "description": "Taught an introductory course on compilation principles, covering compilation techniques, concepts, and tools.",
+    "courses": [
+      "Principles of Compilation"
+    ]
+  },
+  {
+    "institution": "Synopsys Armenia, Educational Department",
+    "role": "Lecturer",
+    "startDate": "2015-09",
+    "endDate": "2016-01",
+    "current": false,
+    "location": "Yerevan, Armenia",
+    "description": "Taught an introductory course on programming-language implementation, covering the principles, methods, and tools used to implement programming languages.",
+    "courses": [
+      "Introduction to Implementation of Programming Languages"
+    ]
+  }
+],
+  "education": [
+    {
+      "institution": "IT Educational and Research Center, Yerevan State University",
+      "degree": "Master's Degree",
+      "field": "Information Technologies",
+      "startDate": "2009",
+      "endDate": "2011",
+      "location": "Yerevan, Armenia",
+      "description": ""
+    },
+    {
+      "institution": "Yerevan State University",
+      "degree": "Bachelor's Degree",
+      "field": "Informatics and Applied Mathematics",
+      "startDate": "2002",
+      "endDate": "2006",
+      "location": "Yerevan, Armenia",
+      "description": ""
+    }
+  ],
+  "publications": [
+    {
+      "title": "Ինտերպրետատոր․ ալգորիթմական լեզվի իրականացումը՝ մի մեծ վարժություն",
+      "description": "A practical Armenian-language book about implementing an interpreter for an algorithmic language in Go. The book follows an implementation-oriented approach, guiding readers through the design and development of a working interpreter.",
+      "date": "2026",
+      "publisher": "Lulu.com",
+      "url": ""
+    }
+  ]
+}
