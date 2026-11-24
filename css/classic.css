@@ -300,6 +300,10 @@ code {
   overflow-wrap: anywhere;
 }
 
+.contact-profile-label {
+  display: none;
+}
+
 .cv-contact a {
   color: var(--ink);
   text-decoration-color: var(--rule);

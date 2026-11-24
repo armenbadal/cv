@@ -172,12 +172,12 @@ function renderContact(personal) {
   }
 
   const profiles = [
-    ["github", "GitHub profile"],
-    ["linkedin", "LinkedIn profile"],
+    ["github", "GitHub profile", "GitHub"],
+    ["linkedin", "LinkedIn profile", "LinkedIn"],
     ["website", "Personal website"],
   ];
 
-  for (const [field, accessibleLabel] of profiles) {
+  for (const [field, accessibleLabel, shortLabel] of profiles) {
     const rawUrl = cleanText(personal[field]);
     const href = toExternalUrl(rawUrl);
 
@@ -191,6 +191,13 @@ function renderContact(personal) {
     });
 
     if (link) {
+      if (shortLabel) {
+        link.replaceChildren(
+          el("span", "contact-profile-url", visibleLabel),
+          el("span", "contact-profile-label", shortLabel),
+        );
+      }
+
       const item = el("li", "contact-item");
       item.append(link);
       items.push(item);
