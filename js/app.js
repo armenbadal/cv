@@ -125,7 +125,7 @@ function applyTheme(theme, persist) {
   }
 
   if (themeColorMeta) {
-    themeColorMeta.setAttribute("content", isClassic ? "#f1e8d7" : "#fcfcfa");
+    themeColorMeta.setAttribute("content", isClassic ? "#ebe4d8" : "#fcfcfa");
   }
 
   themeToggle.checked = isClassic;

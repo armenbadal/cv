@@ -473,10 +473,11 @@ The 1950s newspaper theme keeps its own tokens at the top of `css/classic.css`:
 
 ```css
 :root {
-  --paper: #f1e8d7;
-  --ink: #1b1712;
-  --ink-muted: #5b5145;
-  --accent: #8a1d1d;
+  --paper: #f6f1e7;
+  --desk: #ebe4d8;
+  --ink: #27221d;
+  --ink-muted: #5e554a;
+  --accent: #793b34;
   /* ... */
 }
 ```
